@@ -28,49 +28,63 @@ class RelativeDay(RelativeFunc):
     """Coerce an expression to a new field type."""
 
     def __init__(self, expression, calc_number):
-        super().__init__(expression, calc_number, convert_type='day')
+        super(RelativeDay, self).__init__(
+            expression, calc_number, convert_type='day'
+        )
 
 
 class RelativeWeek(RelativeFunc):
     """Coerce an expression to a new field type."""
 
     def __init__(self, expression, calc_number):
-        super().__init__(expression, calc_number, convert_type='week')
+        super(RelativeWeek, self).__init__(
+            expression, calc_number, convert_type='week'
+        )
 
 
 class RelativeMonth(RelativeFunc):
     """Coerce an expression to a new field type."""
 
     def __init__(self, expression, calc_number):
-        super().__init__(expression, calc_number, convert_type='month')
+        super(RelativeMonth, self).__init__(
+            expression, calc_number, convert_type='month'
+        )
 
 
 class RelativeYear(RelativeFunc):
     """Coerce an expression to a new field type."""
 
     def __init__(self, expression, calc_number):
-        super().__init__(expression, calc_number, convert_type='year')
+        super(RelativeYear, self).__init__(
+            expression, calc_number, convert_type='year'
+        )
 
 
 class RelativeHour(RelativeFunc):
     """Coerce an expression to a new field type."""
 
     def __init__(self, expression, calc_number):
-        super().__init__(expression, calc_number, convert_type='hour')
+        super(RelativeHour, self).__init__(
+            expression, calc_number, convert_type='hour'
+        )
 
 
 class RelativeMinute(RelativeFunc):
     """Coerce an expression to a new field type."""
 
     def __init__(self, expression, calc_number):
-        super().__init__(expression, calc_number, convert_type='minute')
+        super(RelativeMinute, self).__init__(
+            expression, calc_number, convert_type='minute'
+        )
 
 
 class RelativeSecond(RelativeFunc):
     """Coerce an expression to a new field type."""
 
     def __init__(self, expression, calc_number):
-        super().__init__(expression, calc_number, convert_type='second')
+        super(RelativeSecond, self).__init__(
+            expression, calc_number, convert_type='second'
+        )
 
 
 class Epoch(Func):
