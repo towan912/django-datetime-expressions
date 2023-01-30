@@ -5,7 +5,9 @@ from django.db.models.fields import DateTimeField, IntegerField
 class RelativeFunc(Func):
     output_field = DateTimeField()
     function = 'CAST'
-    template = "%(expressions)s + %(function)s('%(calc_number)i %(convert_type)s' as INTERVAL)"
+    template = (
+        "%(expressions)s + %(function)s('%(calc_number)i %(convert_type)s')"
+    )
 
     def __init__(
         self,
