@@ -23,10 +23,14 @@ class RelativeFunc(Func):
         self.calc_number = calc_number
         self.convert_type = convert_type
 
-    def as_mysql(self, compiler, connection):
+    def as_mysql(self, compiler, connection, **extra_content):
         self.function = 'DATE_ADD'
         self.template = "%(function)s(%(expressions)s, INTERVAL %(calc_number)i %(convert_type)s) as INTERVAL"
-        return super().as_mysql(compiler, connection)
+        return super().as_mysql(compiler, connection, **extra_content)
+
+    def as_sqlite(self, compiler, connection, **extra_context):
+        self.function = 'DATETIME'
+        return super().as_sqlite(compiler, connection, **extra_context)
 
 
 class RelativeDay(RelativeFunc):
