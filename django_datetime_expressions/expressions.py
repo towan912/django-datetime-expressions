@@ -30,7 +30,7 @@ class RelativeFunc(Func):
 
     def as_sqlite(self, compiler, connection, **extra_context):
         self.function = 'DATETIME'
-        self.template = "%(function)s('%(expressions)s', '%(calc_number)i %(convert_type)s') AS INTERVAL"
+        self.template = "%(function)s('%(expressions)s', '%(calc_number)+i %(convert_type)s')"
         return super().as_sqlite(compiler, connection, **extra_context)
 
 
