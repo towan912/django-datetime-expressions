@@ -65,7 +65,7 @@ class RelativeHour(RelativeFunc):
 
     def __init__(self, expression, calc_number):
         super(RelativeHour, self).__init__(
-            expression, calc_number, convert_type='hour'
+            expression, calc_number, convert_type='hours'
         )
 
 
@@ -74,7 +74,7 @@ class RelativeMinute(RelativeFunc):
 
     def __init__(self, expression, calc_number):
         super(RelativeMinute, self).__init__(
-            expression, calc_number, convert_type='minute'
+            expression, calc_number, convert_type='minutes'
         )
 
 
@@ -83,7 +83,7 @@ class RelativeSecond(RelativeFunc):
 
     def __init__(self, expression, calc_number):
         super(RelativeSecond, self).__init__(
-            expression, calc_number, convert_type='second'
+            expression, calc_number, convert_type='seconds'
         )
 
 
