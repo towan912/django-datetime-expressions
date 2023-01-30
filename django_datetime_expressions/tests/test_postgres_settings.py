@@ -4,6 +4,7 @@ DATABASES = {
     'default': {
         'NAME': 'django_datetime_expressions',
         'ENGINE': 'django.db.backends.postgresql',
+        'HOST': 'localhost',
         'USER': 'postgres',
         'PASSWORD': 'postgres',
     },
