@@ -18,42 +18,49 @@ class RelativeDay(RelativeFunc):
     """Coerce an expression to a new field type."""
 
     def __init__(self, value):
-        super().__init__(value, convert_type='days')
+        super().__init__(value, convert_type='day')
 
 
 class RelativeWeek(RelativeFunc):
     """Coerce an expression to a new field type."""
 
     def __init__(self, value):
-        super().__init__(value, convert_type='weeks')
+        super().__init__(value, convert_type='week')
 
 
 class RelativeMonth(RelativeFunc):
     """Coerce an expression to a new field type."""
 
     def __init__(self, value):
-        super().__init__(value, convert_type='months')
+        super().__init__(value, convert_type='month')
+
+
+class RelativeYear(RelativeFunc):
+    """Coerce an expression to a new field type."""
+
+    def __init__(self, value):
+        super().__init__(value, convert_type='year')
 
 
 class RelativeHour(RelativeFunc):
     """Coerce an expression to a new field type."""
 
     def __init__(self, value):
-        super().__init__(value, convert_type='hours')
+        super().__init__(value, convert_type='hour')
 
 
 class RelativeMinute(RelativeFunc):
     """Coerce an expression to a new field type."""
 
     def __init__(self, value):
-        super().__init__(value, convert_type='minutes')
+        super().__init__(value, convert_type='minute')
 
 
 class RelativeSecond(RelativeFunc):
     """Coerce an expression to a new field type."""
 
     def __init__(self, value):
-        super().__init__(value, convert_type='seconds')
+        super().__init__(value, convert_type='second')
 
 
 class Epoch(Func):
