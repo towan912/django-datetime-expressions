@@ -34,20 +34,24 @@ class __TestExpression(TestCase):
         Article.objects.create(date=timezone.now())
 
     def test_addition(self):
+        date_expression = self.expressions(F('date'), 1)
+
         article = Article.objects.annotate(
-            additional_date=self.expressions(F('date'), 1)
+            additional_date=date_expression
         ).first()
         self.assertEqual(
-            article.date + relativedelta(**{self.expressions.convert_type: 1}),
+            article.date + relativedelta(**{date_expression.convert_type: 1}),
             article.additional_date,
         )
 
     def test_subtraction(self):
+        date_expression = self.expressions(F('date'), -1)
+
         article = Article.objects.annotate(
-            additional_date=self.expressions(F('date'), -1)
+            additional_date=date_expression
         ).first()
         self.assertEqual(
-            article.date - relativedelta(**{self.expressions.convert_type: 1}),
+            article.date - relativedelta(**{date_expression.convert_type: 1}),
             article.additional_date,
         )
 
