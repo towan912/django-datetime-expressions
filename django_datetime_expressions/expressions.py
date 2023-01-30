@@ -29,7 +29,7 @@ class RelativeDay(RelativeFunc):
 
     def __init__(self, expression, calc_number):
         super(RelativeDay, self).__init__(
-            expression, calc_number, convert_type='day'
+            expression, calc_number, convert_type='days'
         )
 
 
@@ -38,7 +38,7 @@ class RelativeWeek(RelativeFunc):
 
     def __init__(self, expression, calc_number):
         super(RelativeWeek, self).__init__(
-            expression, calc_number, convert_type='week'
+            expression, calc_number, convert_type='weeks'
         )
 
 
@@ -47,7 +47,7 @@ class RelativeMonth(RelativeFunc):
 
     def __init__(self, expression, calc_number):
         super(RelativeMonth, self).__init__(
-            expression, calc_number, convert_type='month'
+            expression, calc_number, convert_type='months'
         )
 
 
@@ -56,7 +56,7 @@ class RelativeYear(RelativeFunc):
 
     def __init__(self, expression, calc_number):
         super(RelativeYear, self).__init__(
-            expression, calc_number, convert_type='year'
+            expression, calc_number, convert_type='years'
         )
 
 
