@@ -5,7 +5,7 @@ DATABASES = {
         'NAME': 'django_datetime_expressions',
         'ENGINE': 'django.db.backends.mysql',
         'HOST': '127.0.0.1',
-        'USER': 'mysql',
+        'USER': 'root',
         'PASSWORD': 'mysql',
         'PORT': '3306',
     }
