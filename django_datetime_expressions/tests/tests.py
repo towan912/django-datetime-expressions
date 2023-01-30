@@ -1,6 +1,7 @@
 from typing import Union
 
 from dateutil.relativedelta import relativedelta
+from django.db.models import F
 from django.test import TestCase
 from django.utils import timezone
 
@@ -29,12 +30,12 @@ class __TestExpression(TestCase):
 
     @classmethod
     def setUpClass(cls):
-        super(__TestExpression, cls).setUpClass()
+        super().setUpClass()
         Article.objects.create(date=timezone.now())
 
     def test_addition(self):
         article = Article.objects.annotate(
-            additional_date=self.expressions(1)
+            additional_date=self.expressions(F('date'), 1)
         ).first()
         self.assertEqual(
             article.date + relativedelta(**{self.expressions.convert_type: 1}),
@@ -43,11 +44,10 @@ class __TestExpression(TestCase):
 
     def test_subtraction(self):
         article = Article.objects.annotate(
-            additional_date=self.expressions(-1)
+            additional_date=self.expressions(F('date'), -1)
         ).first()
         self.assertEqual(
-            article.date
-            + relativedelta(**{self.expressions.convert_type: -1}),
+            article.date - relativedelta(**{self.expressions.convert_type: 1}),
             article.additional_date,
         )
 
