@@ -7,6 +7,7 @@ DATABASES = {
         'HOST': 'localhost',
         'USER': 'mysql',
         'PASSWORD': 'mysql',
+        'PORT': '3306',
     }
 }
 
