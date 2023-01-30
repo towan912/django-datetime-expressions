@@ -4,7 +4,8 @@ from django.db.models.fields import DateTimeField, IntegerField
 
 class RelativeFunc(Func):
     output_field = DateTimeField()
-    template = "%(expressions)s + CAST('%(calc_number)i %(convert_type)s' as INTERVAL)"
+    function = 'CAST'
+    template = "%(expressions)s + %(function)s('%(calc_number)i %(convert_type)s' as INTERVAL)"
 
     def __init__(
         self,
@@ -14,7 +15,10 @@ class RelativeFunc(Func):
         output_field=None,
     ):
         super().__init__(
-            expression, calc_number, convert_type, output_field=output_field
+            expression,
+            calc_number=calc_number,
+            convert_type=convert_type,
+            output_field=output_field,
         )
         self.calc_number = calc_number
         self.convert_type = convert_type
