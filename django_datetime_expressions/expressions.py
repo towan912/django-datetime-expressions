@@ -23,6 +23,11 @@ class RelativeFunc(Func):
         self.calc_number = calc_number
         self.convert_type = convert_type
 
+    def as_mysql(self, compiler, connection):
+        self.function = 'DATE_ADD'
+        self.template = "%(function)s(%(expressions)s, INTERVAL %(calc_number)i %(convert_type)s) as INTERVAL"
+        return super().as_mysql(compiler, connection)
+
 
 class RelativeDay(RelativeFunc):
     """Coerce an expression to a new field type."""
