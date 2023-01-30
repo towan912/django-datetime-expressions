@@ -17,7 +17,7 @@ from django_datetime_expressions.expressions import (
 from django_datetime_expressions.tests.models import Article
 
 
-class __TestExpression(TestCase):
+class RelativeExpressionTestCaseBase(TestCase):
     expressions: Union[
         RelativeDay,
         RelativeHour,
@@ -56,29 +56,29 @@ class __TestExpression(TestCase):
         )
 
 
-class TestRelativeYear(__TestExpression):
+class TestRelativeYear(RelativeExpressionTestCaseBase):
     expressions = RelativeYear
 
 
-class TestRelativeMonth(__TestExpression):
+class TestRelativeMonth(RelativeExpressionTestCaseBase):
     expressions = RelativeMonth
 
 
-class TestRelativeWeek(__TestExpression):
+class TestRelativeWeek(RelativeExpressionTestCaseBase):
     expressions = RelativeWeek
 
 
-class TestRelativeDay(__TestExpression):
+class TestRelativeDay(RelativeExpressionTestCaseBase):
     expressions = RelativeDay
 
 
-class TestRelativeHour(__TestExpression):
+class TestRelativeHour(RelativeExpressionTestCaseBase):
     expressions = RelativeHour
 
 
-class TestRelativeMinute(__TestExpression):
+class TestRelativeMinute(RelativeExpressionTestCaseBase):
     expressions = RelativeMinute
 
 
-class TestRelativeSecond(__TestExpression):
+class TestRelativeSecond(RelativeExpressionTestCaseBase):
     expressions = RelativeSecond
