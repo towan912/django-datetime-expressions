@@ -30,7 +30,7 @@ class RelativeFunc(Func):
 
     def as_sqlite(self, compiler, connection, **extra_context):
         self.function = 'DATETIME'
-        self.template = "%(function)s('%(expressions)s', '%(calc_number)+i %(convert_type)s')"
+        self.template = "%(function)s('%(expressions)s', '%(calc_number)i %(convert_type)s')"
         return self.as_sql(compiler, connection, **extra_context)
 
 
@@ -39,7 +39,7 @@ class RelativeDay(RelativeFunc):
 
     def __init__(self, expression, calc_number):
         super(RelativeDay, self).__init__(
-            expression, calc_number, convert_type='days'
+            expression, calc_number, convert_type='DAY'
         )
 
 
@@ -48,7 +48,7 @@ class RelativeWeek(RelativeFunc):
 
     def __init__(self, expression, calc_number):
         super(RelativeWeek, self).__init__(
-            expression, calc_number, convert_type='weeks'
+            expression, calc_number, convert_type='WEEK'
         )
 
 
@@ -57,7 +57,7 @@ class RelativeMonth(RelativeFunc):
 
     def __init__(self, expression, calc_number):
         super(RelativeMonth, self).__init__(
-            expression, calc_number, convert_type='months'
+            expression, calc_number, convert_type='MONTH'
         )
 
 
@@ -66,7 +66,7 @@ class RelativeYear(RelativeFunc):
 
     def __init__(self, expression, calc_number):
         super(RelativeYear, self).__init__(
-            expression, calc_number, convert_type='years'
+            expression, calc_number, convert_type='YEAR'
         )
 
 
@@ -75,7 +75,7 @@ class RelativeHour(RelativeFunc):
 
     def __init__(self, expression, calc_number):
         super(RelativeHour, self).__init__(
-            expression, calc_number, convert_type='hours'
+            expression, calc_number, convert_type='HOUR'
         )
 
 
@@ -84,7 +84,7 @@ class RelativeMinute(RelativeFunc):
 
     def __init__(self, expression, calc_number):
         super(RelativeMinute, self).__init__(
-            expression, calc_number, convert_type='minutes'
+            expression, calc_number, convert_type='MINUTE'
         )
 
 
@@ -93,7 +93,7 @@ class RelativeSecond(RelativeFunc):
 
     def __init__(self, expression, calc_number):
         super(RelativeSecond, self).__init__(
-            expression, calc_number, convert_type='seconds'
+            expression, calc_number, convert_type='SECOND'
         )
 
 
