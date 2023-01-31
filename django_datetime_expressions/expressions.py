@@ -29,8 +29,8 @@ class RelativeFunc(Func):
         return self.as_sql(compiler, connection, **extra_content)
 
     def as_sqlite(self, compiler, connection, **extra_context):
-        self.function = 'DATETIME'
-        self.template = "%(function)s(%(expressions)s, '%(calc_number)i %(convert_type)s') as datetime"
+        self.function = 'STRFTIME'
+        self.template = "%(function)s('%%Y-%%m-%%d %%H:%%M:%%f', %(expressions)s, '%(calc_number)i %(convert_type)s')"
         return self.as_sql(compiler, connection, **extra_context)
 
 
