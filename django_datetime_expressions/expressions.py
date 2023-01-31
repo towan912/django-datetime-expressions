@@ -52,7 +52,7 @@ class RelativeWeek(RelativeFunc):
 
     def __init__(self, expression, calc_number):
         super(RelativeWeek, self).__init__(
-            expression, calc_number, convert_type='WEEK'
+            expression, calc_number * 7, convert_type='DAY'
         )
 
 
