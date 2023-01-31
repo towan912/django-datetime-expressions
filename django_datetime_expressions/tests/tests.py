@@ -31,7 +31,7 @@ class RelativeExpressionTestCaseMixin:
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        Article.objects.create(date=timezone.now())
+        Article.objects.create(date=timezone.datetime(2000, 1, 1, 12, 00, 00))
 
     def test_addition(self):
         date_expression = self.expressions(F('date'), 1)
@@ -39,10 +39,13 @@ class RelativeExpressionTestCaseMixin:
         article = Article.objects.annotate(
             additional_date=date_expression
         ).first()
+
+        article_calc_datetime = article.date + relativedelta(
+            **{date_expression._duration_type: 1}
+        )
         self.assertEqual(
-            article.date
-            + relativedelta(**{f'{date_expression.convert_type.lower()}s': 1}),
-            article.additional_date,
+            article_calc_datetime.strftime('%Y-%m-%d %H:%M:%S'),
+            article.additional_date.strftime('%Y-%m-%d %H:%M:%S'),
         )
 
     def test_subtraction(self):
@@ -51,10 +54,12 @@ class RelativeExpressionTestCaseMixin:
         article = Article.objects.annotate(
             additional_date=date_expression
         ).first()
+        article_calc_datetime = article.date - relativedelta(
+            **{date_expression._duration_type: 1}
+        )
         self.assertEqual(
-            article.date
-            - relativedelta(**{f'{date_expression.convert_type.lower()}s': 1}),
-            article.additional_date,
+            article_calc_datetime.strftime('%Y-%m-%d %H:%M:%S'),
+            article.additional_date.strftime('%Y-%m-%d %H:%M:%S'),
         )
 
 
