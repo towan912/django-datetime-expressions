@@ -37,6 +37,8 @@ class RelativeFunc(Func):
 class RelativeDay(RelativeFunc):
     """Coerce an expression to a new field type."""
 
+    _duration_type = 'days'
+
     def __init__(self, expression, calc_number):
         super(RelativeDay, self).__init__(
             expression, calc_number, convert_type='DAY'
@@ -45,6 +47,8 @@ class RelativeDay(RelativeFunc):
 
 class RelativeWeek(RelativeFunc):
     """Coerce an expression to a new field type."""
+
+    _duration_type = 'weeks'
 
     def __init__(self, expression, calc_number):
         super(RelativeWeek, self).__init__(
@@ -55,6 +59,8 @@ class RelativeWeek(RelativeFunc):
 class RelativeMonth(RelativeFunc):
     """Coerce an expression to a new field type."""
 
+    _duration_type = 'months'
+
     def __init__(self, expression, calc_number):
         super(RelativeMonth, self).__init__(
             expression, calc_number, convert_type='MONTH'
@@ -63,6 +69,8 @@ class RelativeMonth(RelativeFunc):
 
 class RelativeYear(RelativeFunc):
     """Coerce an expression to a new field type."""
+
+    _duration_type = 'years'
 
     def __init__(self, expression, calc_number):
         super(RelativeYear, self).__init__(
@@ -73,6 +81,8 @@ class RelativeYear(RelativeFunc):
 class RelativeHour(RelativeFunc):
     """Coerce an expression to a new field type."""
 
+    _duration_type = 'hours'
+
     def __init__(self, expression, calc_number):
         super(RelativeHour, self).__init__(
             expression, calc_number, convert_type='HOUR'
@@ -82,6 +92,8 @@ class RelativeHour(RelativeFunc):
 class RelativeMinute(RelativeFunc):
     """Coerce an expression to a new field type."""
 
+    _duration_type = 'minutes'
+
     def __init__(self, expression, calc_number):
         super(RelativeMinute, self).__init__(
             expression, calc_number, convert_type='MINUTE'
@@ -90,6 +102,8 @@ class RelativeMinute(RelativeFunc):
 
 class RelativeSecond(RelativeFunc):
     """Coerce an expression to a new field type."""
+
+    _duration_type = 'seconds'
 
     def __init__(self, expression, calc_number):
         super(RelativeSecond, self).__init__(
