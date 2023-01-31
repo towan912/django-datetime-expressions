@@ -41,9 +41,7 @@ class RelativeExpressionTestCaseMixin:
         ).first()
         self.assertEqual(
             article.date
-            + relativedelta(
-                **{f'{date_expression.convert_type.lowercase()}s': 1}
-            ),
+            + relativedelta(**{f'{date_expression.convert_type.lower()}s': 1}),
             article.additional_date,
         )
 
@@ -55,9 +53,7 @@ class RelativeExpressionTestCaseMixin:
         ).first()
         self.assertEqual(
             article.date
-            - relativedelta(
-                **{f'{date_expression.convert_type.lowercase()}s': 1}
-            ),
+            - relativedelta(**{f'{date_expression.convert_type.lower()}s': 1}),
             article.additional_date,
         )
 
