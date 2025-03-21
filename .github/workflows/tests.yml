@@ -9,7 +9,6 @@ on:
 jobs:
   mysql:
     runs-on: ubuntu-latest
-    continue-on-error: true
     strategy:
       max-parallel: 5
       matrix:
@@ -50,7 +49,6 @@ jobs:
           python runtests.py --settings=django_datetime_expressions.tests.test_mysql_settings
   postgres:
     runs-on: ubuntu-latest
-    continue-on-error: true
     strategy:
       max-parallel: 5
       matrix:
@@ -88,7 +86,6 @@ jobs:
           python runtests.py --settings=django_datetime_expressions.tests.test_postgres_settings
   sqlite:
     runs-on: ubuntu-latest
-    continue-on-error: true
     strategy:
       max-parallel: 5
       matrix:
