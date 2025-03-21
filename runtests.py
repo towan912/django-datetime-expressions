@@ -5,14 +5,14 @@ from optparse import OptionParser
 
 def parse_args():
     parser = OptionParser()
-    parser.add_option('-s', '--settings', help='Define settings.')
+    parser.add_option("-s", "--settings", help="Define settings.")
     parser.add_option(
-        '-t', '--unittest', help='Define which test to run. Default all.'
+        "-t", "--unittest", help="Define which test to run. Default all."
     )
     parser.add_option(
-        '-v',
-        '--verbosity',
-        help='Set the verbosity level.',
+        "-v",
+        "--verbosity",
+        help="Set the verbosity level.",
         default=1,
         type=int,
     )
@@ -30,16 +30,16 @@ def parse_args():
     return options
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     options = parse_args()
-    os.environ['DJANGO_SETTINGS_MODULE'] = options.settings
+    os.environ["DJANGO_SETTINGS_MODULE"] = options.settings
 
     # Local imports because DJANGO_SETTINGS_MODULE needs to be set first
     import django
     from django.conf import settings
     from django.test.utils import get_runner
 
-    if hasattr(django, 'setup'):
+    if hasattr(django, "setup"):
         django.setup()
 
     TestRunner = get_runner(settings)

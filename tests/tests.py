@@ -1,11 +1,11 @@
+from datetime import datetime
 from typing import Union
 
 from dateutil.relativedelta import relativedelta
 from django.db.models import F
 from django.test import TestCase
-from django.utils import timezone
 
-from django_datetime_expressions.expressions import (
+from src.datetime_expressions.expressions import (
     RelativeDay,
     RelativeHour,
     RelativeMinute,
@@ -14,7 +14,8 @@ from django_datetime_expressions.expressions import (
     RelativeWeek,
     RelativeYear,
 )
-from django_datetime_expressions.tests.models import Article
+
+from .models import Article
 
 
 class RelativeExpressionTestCaseMixin:
@@ -31,10 +32,10 @@ class RelativeExpressionTestCaseMixin:
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        Article.objects.create(date=timezone.datetime(2000, 1, 1, 12, 00, 00))
+        Article.objects.create(date=datetime(2000, 1, 1, 12, 00, 00))
 
     def test_addition(self):
-        date_expression = self.expressions(F('date'), 1)
+        date_expression = self.expressions(F("date"), 1)
 
         article = Article.objects.annotate(
             additional_date=date_expression
@@ -44,12 +45,12 @@ class RelativeExpressionTestCaseMixin:
             **{date_expression._duration_type: 1}
         )
         self.assertEqual(
-            article_calc_datetime.strftime('%Y-%m-%d %H:%M:%S'),
-            article.additional_date.strftime('%Y-%m-%d %H:%M:%S'),
+            article_calc_datetime.strftime("%Y-%m-%d %H:%M:%S"),
+            article.additional_date.strftime("%Y-%m-%d %H:%M:%S"),
         )
 
     def test_subtraction(self):
-        date_expression = self.expressions(F('date'), -1)
+        date_expression = self.expressions(F("date"), -1)
 
         article = Article.objects.annotate(
             additional_date=date_expression
@@ -58,8 +59,8 @@ class RelativeExpressionTestCaseMixin:
             **{date_expression._duration_type: 1}
         )
         self.assertEqual(
-            article_calc_datetime.strftime('%Y-%m-%d %H:%M:%S'),
-            article.additional_date.strftime('%Y-%m-%d %H:%M:%S'),
+            article_calc_datetime.strftime("%Y-%m-%d %H:%M:%S"),
+            article.additional_date.strftime("%Y-%m-%d %H:%M:%S"),
         )
 
 
