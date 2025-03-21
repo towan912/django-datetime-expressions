@@ -7,7 +7,7 @@ DATABASES = {
 }
 
 INSTALLED_APPS = [
-    "django_datetime_expressions.tests",
+    "tests",
 ]
 
 MIGRATION_MODULES = {
