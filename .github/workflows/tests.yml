@@ -13,8 +13,8 @@ jobs:
     strategy:
       max-parallel: 5
       matrix:
-        python-version: [3.9, 3.10, 3.11, 3.12, 3.13]
-        django-version: [4.2, 5.0, 5.1]
+        python-version: ["3.9", "3.10", "3.11", "3.12", "3.13"]
+        django-version: ["4.2", "5.0", "5.1"]
     services:
       mysql:
         image: mysql
@@ -54,8 +54,8 @@ jobs:
     strategy:
       max-parallel: 5
       matrix:
-        python-version: [3.9, 3.10, 3.11, 3.12, 3.13]
-        django-version: [4.2, 5.0, 5.1]
+        python-version: ["3.9", "3.10", "3.11", "3.12", "3.13"]
+        django-version: ["4.2", "5.0", "5.1"]
     services:
       postgres:
         image: postgres
@@ -92,8 +92,8 @@ jobs:
     strategy:
       max-parallel: 5
       matrix:
-        python-version: [3.9, 3.10, 3.11, 3.12, 3.13]
-        django-version: [4.2, 5.0, 5.1]
+        python-version: ["3.9", "3.10", "3.11", "3.12", "3.13"]
+        django-version: ["4.2", "5.0", "5.1"]
     steps:
       - uses: actions/checkout@v2
       - name: Set up Python ${{ matrix.python-version }}
