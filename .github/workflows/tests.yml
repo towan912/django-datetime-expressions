@@ -51,7 +51,7 @@ jobs:
       - name: Run Tests
         if: success() # Skip tests if dependencies failed
         run: |
-          python runtests.py --settings=django_datetime_expressions.tests.test_mysql_settings
+          python runtests.py --settings=tests.test_mysql_settings
   postgres:
     runs-on: ubuntu-latest
     strategy:
@@ -93,7 +93,7 @@ jobs:
       - name: Run Tests
         if: success() # Skip tests if dependencies failed
         run: |
-          python runtests.py --settings=django_datetime_expressions.tests.test_postgres_settings
+          python runtests.py --settings=tests.test_postgres_settings
   sqlite:
     runs-on: ubuntu-latest
     strategy:
@@ -121,4 +121,4 @@ jobs:
       - name: Run Tests
         if: success() # Skip tests if dependencies failed
         run: |
-          python runtests.py --settings=django_datetime_expressions.tests.test_sqlite_settings
+          python runtests.py --settings=tests.test_sqlite_settings
