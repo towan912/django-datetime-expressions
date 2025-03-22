@@ -27,15 +27,11 @@ classifiers = [
 ]
 keywords = ["django", "datetime", "expressions", "orm"]
 requires-python = ">=3.9"
+dependencies = ["Django", "python-dateutil", "sqlparse"]
 
 [project.urls]
 "Bug Tracker" = "https://github.com/towan912/django-datetime-expressions/issues"
 "Homepage" = "https://github.com/towan912/django-datetime-expressions"
-
-[project.dependencies]
-Django = ">=4.2"
-python-dateutil = "*"
-sqlparse = "*"
 
 [tool.setuptools.packages.find]
 where = ["."]
