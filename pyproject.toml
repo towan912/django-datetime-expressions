@@ -9,6 +9,7 @@ description = "Custom Django ORM expressions for datetime operations."
 readme = "README.md"
 license = { file = "LICENSE" }
 authors = [{ name = "towan912", email = "me@towan.io" }]
+maintainers = [{ name = "towan912", email = "me@towan.io" }]
 classifiers = [
     "Development Status :: 4 - Beta",
     "Framework :: Django",
