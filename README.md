@@ -24,7 +24,7 @@ pip install django-datetime-expressions
 ```python
 from datetime import datetime
 from django.db.models import F
-from django_datetime_expressions import RelativeDay
+from datetime_expressions.expressions import RelativeDay
 
 # 例: 現在の日付に5日を加算
 queryset = MyModel.objects.annotate(new_date=RelativeDay(F('date_field'), 5))
@@ -47,7 +47,7 @@ queryset = MyModel.objects.annotate(new_date=RelativeDay(F('date_field'), 5))
 `Epoch`クラスを使用して、日時フィールドからエポックタイム（1970年1月1日からの秒数）を取得できます。
 
 ```python
-from django_datetime_expressions import Epoch
+from datetime_expressions.expressions import Epoch
 
 queryset = MyModel.objects.annotate(epoch_time=Epoch(F('date_field')))
 ```
