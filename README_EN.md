@@ -23,7 +23,7 @@ Below is an example of using `RelativeDay` to manipulate dates.
 ```python
 from datetime import datetime
 from django.db.models import F
-from datetime_expressions.expressions import RelativeDay
+from datetime_expressions import RelativeDay
 
 # Example: Add 5 days to the current date
 queryset = MyModel.objects.annotate(new_date=RelativeDay(F('date_field'), 5))
@@ -46,7 +46,7 @@ queryset = MyModel.objects.annotate(new_date=RelativeDay(F('date_field'), 5))
 Use the `Epoch` class to extract epoch time (seconds since January 1, 1970) from a datetime field.
 
 ```python
-from datetime_expressions.expressions import Epoch
+from datetime_expressions import Epoch
 
 queryset = MyModel.objects.annotate(epoch_time=Epoch(F('date_field')))
 ```
