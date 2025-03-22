@@ -29,9 +29,9 @@ keywords = ["django", "datetime", "expressions", "orm"]
 requires-python = ">=3.9"
 
 [project.urls]
-Bug Tracker = "https://github.com/towan912/django-datetime-expressions/issues"
+"Bug Tracker" = "https://github.com/towan912/django-datetime-expressions/issues"
+"Homepage" = "https://github.com/towan912/django-datetime-expressions"
 
-Homepage = "https://github.com/towan912/django-datetime-expressions"
 [project.dependencies]
 Django = ">=4.2"
 python-dateutil = "*"
