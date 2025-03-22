@@ -27,7 +27,7 @@ jobs:
           version_format: "${major}.${minor}.${patch}-prerelease${increment}"
           # Optional path to check for changes. If any changes are detected in the path the
           # 'changed' output will true. Enter multiple paths separated by spaces.
-          change_path: "src/datetime_expressions"
+          change_path: "datetime_expressions"
           # Named version, will be used as suffix for name version tag
           namespace: datetime_expressions
           # If this is set to true, *every* commit will be treated as a new version.
