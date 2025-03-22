@@ -1,50 +1,49 @@
 # django-datetime-expressions
 
-`django-datetime-expressions`は、Django ORMで日時操作を簡単に行うためのカスタム式を提供します。
-日時フィールドに対して相対的な加算や減算が可能です。
+`django-datetime-expressions` provides custom expressions for Django ORM to simplify datetime operations. It allows relative additions and subtractions to datetime fields.
 
-**[English Version](README_EN.md)**
+**[日本語版 (Japanese Version)](README_JP.md)**
 
-## 特徴
+## Features
 
-- 日時フィールドに対する相対的な操作（例: 日、週、月、年の加算/減算）
-- 複数のデータベースエンジン（MySQL, SQLite, Oracle）に対応
-- `EXTRACT`を使用したエポックタイムの取得
+- Perform relative operations on datetime fields (e.g., add/subtract days, weeks, months, years)
+- Supports multiple database engines (MySQL, SQLite, Oracle)
+- Extract epoch time using `EXTRACT`
 
-## インストール
+## Installation
 
 ```bash
 pip install django-datetime-expressions
 ```
 
-## 使用方法
+## Usage
 
-以下は、`RelativeDay`を使用して日付を操作する例です。
+Below is an example of using `RelativeDay` to manipulate dates.
 
 ```python
 from datetime import datetime
 from django.db.models import F
 from datetime_expressions import RelativeDay
 
-# 例: 現在の日付に5日を加算
+# Example: Add 5 days to the current date
 queryset = MyModel.objects.annotate(new_date=RelativeDay(F('date_field'), 5))
 ```
 
-### サポートされる相対操作
+### Supported Relative Operations
 
-| クラス名          | 説明               | 単位       |
-|-------------------|--------------------|------------|
-| `RelativeDay`     | 日の加算/減算      | 日         |
-| `RelativeWeek`    | 週の加算/減算      | 7日単位    |
-| `RelativeMonth`   | 月の加算/減算      | 月         |
-| `RelativeYear`    | 年の加算/減算      | 年         |
-| `RelativeHour`    | 時間の加算/減算    | 時間       |
-| `RelativeMinute`  | 分の加算/減算      | 分         |
-| `RelativeSecond`  | 秒の加算/減算      | 秒         |
+| Class Name        | Description         | Unit       |
+|-------------------|---------------------|------------|
+| `RelativeDay`     | Add/Subtract days   | Days       |
+| `RelativeWeek`    | Add/Subtract weeks  | 7-day units|
+| `RelativeMonth`   | Add/Subtract months | Months     |
+| `RelativeYear`    | Add/Subtract years  | Years      |
+| `RelativeHour`    | Add/Subtract hours  | Hours      |
+| `RelativeMinute`  | Add/Subtract minutes| Minutes    |
+| `RelativeSecond`  | Add/Subtract seconds| Seconds    |
 
-### エポックタイムの取得
+### Extracting Epoch Time
 
-`Epoch`クラスを使用して、日時フィールドからエポックタイム（1970年1月1日からの秒数）を取得できます。
+Use the `Epoch` class to extract epoch time (seconds since January 1, 1970) from a datetime field.
 
 ```python
 from datetime_expressions import Epoch
@@ -52,16 +51,16 @@ from datetime_expressions import Epoch
 queryset = MyModel.objects.annotate(epoch_time=Epoch(F('date_field')))
 ```
 
-## サポートされるデータベース
+## Supported Databases
 
 - MySQL
 - SQLite
 - Oracle
 
-## 貢献
+## Contribution
 
-バグ報告や機能リクエストは、[GitHub Issues](https://github.com/towan912/django-datetime-expressions/issues)で受け付けています。
+Bug reports and feature requests are welcome on [GitHub Issues](https://github.com/towan912/django-datetime-expressions/issues). Pull requests are also appreciated!
 
-## ライセンス
+## License
 
-このプロジェクトはMITライセンスの下で提供されています。詳細は[LICENSE](LICENSE)ファイルをご覧ください。
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
