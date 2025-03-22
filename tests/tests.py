@@ -5,7 +5,7 @@ from dateutil.relativedelta import relativedelta
 from django.db.models import F
 from django.test import TestCase
 
-from src.datetime_expressions.expressions import (
+from src.datetime_expressions import (
     RelativeDay,
     RelativeHour,
     RelativeMinute,
