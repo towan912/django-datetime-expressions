@@ -26,7 +26,7 @@ class RelativeFunc(Func):
     def as_mysql(self, compiler, connection, **extra_content):
         self.function = "DATE_ADD"
         self.template = "%(function)s(%(expressions)s, INTERVAL %(calc_number)i %(convert_type)s)"
-        return super().as_mysql(compiler, connection, **extra_content)
+        return super().as_sql(compiler, connection, **extra_content)
 
     def as_sqlite(self, compiler, connection, **extra_context):
         self.function = "STRFTIME"
